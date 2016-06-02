@@ -15,7 +15,7 @@ def max3(v1, v2, v3):
 def rps():
     choices = ['rock', 'paper', 'scissors']
 
-    p_choice = input("Rock, Paper, or Scissors?: ")
+    p_choice = raw_input("Rock, Paper, or Scissors?: ")
 
     if p_choice in choices:
         p_choice = choices.index(p_choice)
@@ -39,9 +39,9 @@ def rps():
 rps()
 
 while True:
-    print()
-    again = input("Do you want to play again? (y/n): ")
-    print()
+    print("")
+    again = raw_input("Do you want to play again? (y/n): ")
+    print("")
     if again == 'y' or again == 'yes': rps()
     else: break
         
