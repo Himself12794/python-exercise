@@ -26,9 +26,9 @@ def rps(smart_choose, hist=[0, 0, 0]):
     p_choice = raw_input("Rock, Paper, or Scissors?: ")
 
     if p_choice in choices:
-        hist[p_choice] += 1
-        p_choice = choices.index(p_choice)
-        print("you chose " + choices[p_choice])
+        hist[int(p_choice)] += 1
+        p_choice = choices.index(int(p_choice))
+        print("you chose " + choices[int(p_choice)])
         a_choice = choose()
         print("The computer chose " + choices[a_choice])
 
