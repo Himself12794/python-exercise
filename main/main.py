@@ -12,7 +12,7 @@ def max3(i):
 
 def rps(smart_choose, hist=[0, 0, 0]):
 
-	print(hist)
+    print(hist)
 
     def choose():
         if smart_choose:
