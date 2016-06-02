@@ -1,26 +1,33 @@
 import random
 
-def max3(v1, v2, v3):
-    i = [v1, v2, v3]
+def max3(i):
+    m = 0
     
-    m = v1
-    
-    for t in i:
-        if t > m: m = t
+    for t in range(len(i)):
+        if i[t] > i[m]: m = t
     
     return m
 
 #print(max3(3,4,5))
 
-def rps():
+def rps(smart_choose, hist=[0, 0, 0]):
+
+    def choose():
+        if smart_choose:
+            if hist[0] == hist[1] == hist[2]:
+                return random.randint(0, 2)
+            else:
+                return max3(hist)
+    
     choices = ['rock', 'paper', 'scissors']
 
     p_choice = raw_input("Rock, Paper, or Scissors?: ")
 
     if p_choice in choices:
+        hist[p_choice] += 1
         p_choice = choices.index(p_choice)
         print("you chose " + choices[p_choice])
-        a_choice = random.randint(0, 2)
+        a_choice = choose()
         print("The computer chose " + choices[a_choice])
 
         if p_choice == a_choice: print("It's a tie!")
@@ -35,14 +42,18 @@ def rps():
             else: print("You lose!")
 
     else: print("Not a valid choice!")
+    
+    return hist
 
-rps()
+
+    
+hist = rps(True)
 
 while True:
     print("")
     again = raw_input("Do you want to play again? (y/n): ")
     print("")
-    if again == 'y' or again == 'yes': rps()
+    if again == 'y' or again == 'yes': rps(True, hist)
     else: break
         
 
